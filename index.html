@@ -1,136 +1,121 @@
-/* style.css — One-page resume */
-:root{
-  --bg: #f6f8fb;
-  --card: #ffffff;
-  --accent: #c92b2b; /* สีแดงจากตัวอย่าง */
-  --muted: #666;
-  --text: #222;
-}
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>เรซูเม่ — ชื่อ-นามสกุล</title>
 
-*{box-sizing:border-box}
-body{
-  font-family: 'Prompt', sans-serif;
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.45;
-}
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-/* resume wrapper */
-.resume{
-  max-width:1000px;
-  margin:32px auto;
-  padding:18px;
-}
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="resume">
+    <header class="resume-header">
+      <div class="left">
+        <!-- ใส่รูปโปรไฟล์ถ้ามี: images/me.jpg -->
+        <img src="images/me.jpg" alt="รูปโปรไฟล์" class="avatar" onerror="this.style.display='none'">
+        <h1 class="name">ชื่อ-นามสกุล</h1>
+        <p class="role">สาขา / คณะ — มหาวิทยาลัย</p>
+      </div>
+      <div class="right">
+        <div class="contact">
+          <p><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+          <p><strong>LinkedIn:</strong> <a href="#" target="_blank">linkedin.com/in/yourprofile</a></p>
+          <p><strong>จังหวัด:</strong> จังหวัดของคุณ</p>
+        </div>
+        <div class="actions">
+          <button id="printBtn">ดาวน์โหลด PDF / พิมพ์</button>
+        </div>
+      </div>
+    </header>
 
-/* Header */
-.resume-header{
-  display:flex;
-  gap:18px;
-  align-items:center;
-  background:linear-gradient(90deg,#fff,#fbfdff);
-  padding:18px;
-  border-radius:10px;
-  border:1px solid rgba(0,0,0,0.03);
-}
-.resume-header .left{
-  display:flex;
-  gap:16px;
-  align-items:center;
-}
-.avatar{
-  width:84px;
-  height:84px;
-  object-fit:cover;
-  border-radius:12px;
-  border:3px solid var(--accent);
-}
-.name{
-  margin:0;
-  font-size:20px;
-  font-weight:700;
-}
-.role{
-  margin:4px 0 0;
-  color:var(--muted);
-  font-size:13px;
-}
+    <main class="resume-body">
+      <section class="section intro">
+        <h2>1. ส่วนแนะนำตัว (Introduction / Profile)</h2>
+        <p>ผม/ฉันเป็นนักศึกษา/ผู้สนใจด้าน <strong>AI, Web Dev, Data Science</strong> มีประสบการณ์พัฒนาเว็บไซต์ด้วย PHP/MySQL และทำโปรเจกต์ด้าน Machine Learning เบื้องต้น สนใจเรียนรู้และร่วมงานด้านเทคโนโลยี</p>
+        <ul class="meta">
+          <li>ชื่อ-นามสกุล (ไทย / อังกฤษ)</li>
+          <li>สถานะ: นักศึกษา ปี 3 (ตัวอย่าง)</li>
+          <li>ความสนใจ: AI, Web Development, Data Analysis</li>
+        </ul>
+      </section>
 
-/* contact and actions */
-.resume-header .right{
-  margin-left:auto;
-  text-align:right;
-}
-.contact p{ margin:4px 0; font-size:14px;}
-.contact a{ color:#0b66c3; text-decoration:none; }
-.actions{ margin-top:8px; }
-.actions button{
-  background:var(--accent);
-  color:#fff;
-  border:none;
-  padding:8px 12px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:600;
-}
-.actions button:hover{ opacity:0.95; }
+      <section class="section two-col">
+        <div class="col">
+          <h2>2. ทักษะ (Skills)</h2>
+          <ul class="skills">
+            <li><strong>Programming:</strong> Python, Java, HTML/CSS, JavaScript</li>
+            <li><strong>AI & Data:</strong> TensorFlow, scikit-learn, Power BI, SQL</li>
+            <li><strong>Tools:</strong> Git, VS Code, Figma, Google Colab</li>
+            <li><strong>Soft skills:</strong> การสื่อสาร, ทำงานเป็นทีม, การแก้ปัญหา</li>
+          </ul>
+        </div>
 
-/* Body */
-.resume-body{
-  margin-top:18px;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
-.section{
-  background:var(--card);
-  padding:14px 16px;
-  border-radius:10px;
-  border-left:4px solid transparent;
-  box-shadow: 0 8px 20px rgba(14,28,64,0.04);
-}
-.section h2{
-  margin:0 0 8px;
-  font-size:15px;
-  color:var(--accent);
-}
-.section p{ margin:6px 0; color:var(--muted); }
-.section ul{ margin:8px 0 0 18px; }
+        <div class="col">
+          <h2>3. ผลงานที่ผ่านมา (Projects / Portfolio)</h2>
+          <ul class="projects">
+            <li>
+              <strong>เว็บไซต์แนะนำจังหวัดร้อยเอ็ด</strong><br>
+              รายละเอียดสั้น ๆ — พัฒนาเป็น Web App ด้วย PHP/MySQL. <a href="#">GitHub</a> | <a href="#">Demo</a>
+            </li>
+            <li>
+              <strong>AI ทำนายโรคเบาหวาน</strong><br>
+              ใช้ Machine Learning วิเคราะห์ข้อมูลและสร้างโมเดลทำนาย (Notebook / Demo)
+            </li>
+            <li>
+              <strong>Dashboard วิเคราะห์ข้อมูลร้านกาแฟ</strong><br>
+              ทำ Visualization และสรุปแนวทางปรับปรุงยอดขาย
+            </li>
+          </ul>
+        </div>
+      </section>
 
-/* two-column inside sections */
-.two-col{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:16px;
-}
+      <section class="section">
+        <h2>4. การศึกษา (Education)</h2>
+        <ul>
+          <li><strong>คณะวิทยาศาสตร์</strong> สาขาวิทยาการคอมพิวเตอร์ — มหาวิทยาลัยราชภัฏตัวอย่าง (2566 – ปัจจุบัน)</li>
+          <li>เกรดเฉลี่ย (ถ้าต้องการระบุ)</li>
+        </ul>
+      </section>
 
-/* small lists and styles */
-.skills li, .projects li{ margin-bottom:8px; font-size:14px; color:var(--text); }
-.meta{ list-style: disc; margin-left:20px; color:var(--text); }
+      <section class="section two-col">
+        <div class="col">
+          <h2>5. กิจกรรมและผลงานอื่น ๆ (Activities / Achievements)</h2>
+          <ul>
+            <li>เข้าร่วมอบรม "AI for Beginners by Microsoft"</li>
+            <li>เข้าร่วม UDRU Hackathon 2025</li>
+            <li>ได้รับรางวัลชนะเลิศโครงงานด้าน IoT (ตัวอย่าง)</li>
+          </ul>
+        </div>
 
-/* Footer */
-.resume-footer{
-  margin-top:14px;
-  text-align:center;
-  color:var(--muted);
-  font-size:13px;
-}
+        <div class="col">
+          <h2>6. ติดต่อ (Contact)</h2>
+          <p>อีเมล: youremail@example.com<br>GitHub: github.com/yourusername<br>LinkedIn: linkedin.com/in/yourprofile</p>
 
-/* Responsive */
-@media (max-width: 860px){
-  .resume-header{ flex-direction:column; align-items:flex-start; text-align:left; }
-  .resume-header .right{ margin-left:0; text-align:left; }
-  .two-col{ grid-template-columns: 1fr; }
-}
+          <h2>7. องค์ประกอบเสริม (Career Interest)</h2>
+          <ul>
+            <li>สนใจงานด้าน Data Science / Machine Learning</li>
+            <li>สนใจงานด้าน Web Development (Full-stack)</li>
+          </ul>
+        </div>
+      </section>
+    </main>
 
-/* Print styles (for PDF) */
-@media print{
-  body{ background:white; }
-  .resume{ margin:0; padding:0; max-width:100%; }
-  .actions, .contact a { display:none; }
-  .resume-header, .section{ box-shadow:none; border:none; }
-  .resume-header .right{ display:block; }
-  .section{ page-break-inside: avoid; }
-}
+    <footer class="resume-footer">
+      <p>© <span id="year"></span> ชื่อ-นามสกุล — สร้างด้วย GitHub Pages</p>
+    </footer>
+  </div>
+
+  <script>
+    // พิมพ์ / บันทึกเป็น PDF
+    document.getElementById('printBtn').addEventListener('click', function(){
+      window.print();
+    });
+    // ใส่ปีอัตโนมัติ
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
