@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome (icons) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pQmX... (cdn)" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Your CSS -->
   <link rel="stylesheet" href="style.css">
@@ -19,44 +19,41 @@
     <div class="base">
       <div class="profile">
         <div class="photo">
-          <!-- ถ้ามีรูปแทนไอคอน ให้ใช้ <img src="images/me.jpg" alt="profile"> -->
-          <i class="fas fa-rocket"></i>
+          <!-- เปลี่ยนเป็นรูปโปรไฟล์: ใส่ไฟล์ images/me.jpg หรือเปลี่ยนเป็น URL รูปของคุณ -->
+          <img src="images/me.jpg" alt="profile" style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
         </div>
         <div class="info">
-          <h1 class="name">Naomi Weatherford</h1>
-          <h2 class="job">Frontend Web Designer</h2>
+          <h1 class="name">naomi weatherford</h1>
+          <h2 class="job">frontend web designer</h2>
         </div>
       </div>
 
       <div class="about">
-        <h3>About Me</h3>
+        <h3>about me</h3>
         <p>I'm a web designer for Fiserv, specializing in web design, graphic design, and UX. Experienced with the Adobe Creative Suite, responsive design, social media management, and prototyping.</p>
       </div>
 
       <div class="contact">
-        <h3>Contact Me</h3>
-        <div class="call"><a href="tel:123-456-7890"><i class="fas fa-phone"></i><span>123-456-7890</span></a></div>
+        <h3>contact me</h3>
+        <div class="call"><a href="tel:0651140305"><i class="fas fa-phone"></i><span>065-114-0305</span></a></div>
         <div class="address"><a href="https://goo.gl/maps/fiTBGT6Vnhy" target="_blank"><i class="fas fa-map-marker-alt"></i><span>Provo, Utah</span></a></div>
-        <div class="email"><a href="mailto:astronaomical@gmail.com"><i class="fas fa-envelope"></i><span>astronaomical@gmail.com</span></a></div>
-        <div class="website"><a href="http://astronaomical.com/" target="_blank"><i class="fas fa-home"></i><span>astronaomical.com</span></a></div>
+        <div class="email"><a href="mailto:faluke04@gmail.com"><i class="fas fa-envelope"></i><span>faluke04@gmail.com</span></a></div>
+        <!-- ลบบรรทัดถัดจากอีเมลออกตามที่ขอ (เช่น website) -->
       </div>
 
       <div class="follow">
-        <h3>Follow Me</h3>
+        <h3>follow me</h3>
         <div class="box">
-          <a href="https://www.facebook.com/astronaomical/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/astronaomical/" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.pinterest.com/astronaomical/" target="_blank"><i class="fab fa-pinterest-p"></i></a>
-          <a href="https://www.linkedin.com/in/naomi-weatherford-758385112/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://codepen.io/astronaomical/" target="_blank"><i class="fab fa-codepen"></i></a>
-          <a href="https://www.behance.net/astronaomical" target="_blank"><i class="fab fa-behance"></i></a>
+          <!-- เหลือแค่ Facebook กับ Instagram ตามคำขอ -->
+          <a href="https://www.facebook.com/astronaomical/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/astronaomical/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
     </div>
 
     <div class="func">
       <div class="work">
-        <h3><i class="fa fa-briefcase"></i> Experience</h3>
+        <h3><i class="fa fa-briefcase"></i> experience</h3>
         <ul>
           <li><span class="title">Technical Consultant - Web Design</span><small class="company">Fiserv</small><small class="date">Apr 2018 - Now</small></li>
           <li><span class="title">Web Designer</span><small class="company">Lynden</small><small class="date">Jan 2018 - Apr 2018</small></li>
@@ -65,16 +62,16 @@
       </div>
 
       <div class="edu">
-        <h3><i class="fa fa-graduation-cap"></i> Education</h3>
+        <h3><i class="fa fa-graduation-cap"></i> education</h3>
         <ul>
-          <li><span class="title">Bachelor of Science<br>Web Design and Development</span><small class="company">BYU-Idaho</small><small class="date">Jan. 2016 - Apr. 2018</small></li>
+          <li><span class="title">Bachelor of Science<br>Web Design and Development</span><small class="company">มหาวิทยาลัยราชภัฏอุดรธานี</small><small class="date">Jan. 2016 - Apr. 2018</small></li>
           <li><span class="title">Computer Science</span><small class="company">Edmonds Community College</small><small class="date">Sept. 2014 - Dec. 2015</small></li>
           <li><span class="title">High School</span><small class="company">Henry M. Jackson High School</small><small class="date">Jan. 2013 - Jun. 2015</small></li>
         </ul>
       </div>
 
       <div class="skills-prog">
-        <h3><i class="fas fa-code"></i> Programming Skills</h3>
+        <h3><i class="fas fa-code"></i> programming skills</h3>
         <ul>
           <li data-percent="95"><span>HTML5</span>
             <div class="skills-bar"><div class="bar"></div></div>
@@ -101,7 +98,7 @@
       </div>
 
       <div class="skills-soft">
-        <h3><i class="fas fa-bezier-curve"></i> Software Skills</h3>
+        <h3><i class="fas fa-bezier-curve"></i> software skills</h3>
         <ul>
           <li data-percent="90">
             <svg viewBox="0 0 100 100" class="radial"><circle cx="50" cy="50" r="45"></circle><circle class="cbar" cx="50" cy="50" r="45"></circle></svg>
@@ -123,7 +120,7 @@
       </div>
 
       <div class="interests">
-        <h3><i class="fas fa-star"></i> Interests</h3>
+        <h3><i class="fas fa-star"></i> interests</h3>
         <div class="interests-items">
           <div class="item"><i class="fas fa-palette"></i><span>Art</span></div>
           <div class="item"><i class="fas fa-book"></i><span>Books</span></div>
@@ -141,7 +138,10 @@
     document.querySelectorAll('.skills-prog li').forEach(li=>{
       const p = li.getAttribute('data-percent') || 0;
       const bar = li.querySelector('.bar');
-      if(bar) bar.style.width = p + '%';
+      if(bar) {
+        // slight delay so CSS transitions animate
+        setTimeout(()=>{ bar.style.width = p + '%'; }, 100);
+      }
     });
 
     // radial circles
@@ -153,8 +153,9 @@
         const circumference = 2 * Math.PI * r;
         circle.style.strokeDasharray = circumference;
         const offset = circumference * (1 - p / 100);
-        // small timeout for animation
-        setTimeout(()=>{ circle.style.strokeDashoffset = offset; }, 100);
+        circle.style.strokeDashoffset = circumference; // start hidden
+        // animate to value
+        setTimeout(()=>{ circle.style.strokeDashoffset = offset; }, 150);
       }
     });
   </script>
