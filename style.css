@@ -437,3 +437,35 @@ h3 {
 .resume .func .interests-items div span {
   display: block;
 }
+/* --------- บังคับให้รูปเป็นวงกลมแน่นอน (override rules) --------- */
+.resume .base .profile .photo,
+.resume .base .profile .photo * {
+  /* ป้องกันการยืดของ container */
+  box-sizing: border-box;
+}
+
+/* บังคับขนาดจริงและยกเลิก width:100% ของกฎเก่า */
+.resume .base .profile .photo img {
+  display: block !important;
+  width: 140px !important;       /* ปรับขนาดตามต้องการ */
+  height: 140px !important;
+  max-width: none !important;    /* ยกเลิกการถูกบังคับให้เต็มความกว้าง */
+  border-radius: 50% !important; /* ทำเป็นวงกลม */
+  object-fit: cover !important;  /* ตัดภาพให้เต็มวงกลมโดยไม่บิด */
+  border: 4px solid #ffffff;     /* ขอบขาว รอบรูป (ถ้าไม่ชอบลบได้) */
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  margin: 0 auto;                /* จัดกึ่งกลางแนวนอน */
+}
+
+/* ถ้ามี fallback icon ให้ซ่อนเมื่อมีรูปจริง */
+.resume .base .profile .photo .avatar-fallback { display: none; }
+
+/* mobile: ย่อขนาดรูป */
+@media (max-width: 900px) {
+  .resume .base .profile .photo img {
+    width: 110px !important;
+    height: 110px !important;
+    border-width: 3px;
+  }
+}
+
