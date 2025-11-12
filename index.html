@@ -1,127 +1,136 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>หน้าแรก GitHub.io - เรซูเม่</title>
+/* style.css — One-page resume */
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --accent: #c92b2b; /* สีแดงจากตัวอย่าง */
+  --muted: #666;
+  --text: #222;
+}
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+*{box-sizing:border-box}
+body{
+  font-family: 'Prompt', sans-serif;
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
 
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="title-block">
-        <h1>ชื่อ-นามสกุล / ชื่อภาษาอังกฤษ</h1>
-        <p class="subtitle">สาขา / คณะ — มหาวิทยาลัย</p>
-      </div>
+/* resume wrapper */
+.resume{
+  max-width:1000px;
+  margin:32px auto;
+  padding:18px;
+}
 
-      <div class="contact-block">
-        <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-        <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
-        <p>LinkedIn: <a href="#">linkedin.com/in/yourprofile</a></p>
-      </div>
-    </div>
-  </header>
+/* Header */
+.resume-header{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  background:linear-gradient(90deg,#fff,#fbfdff);
+  padding:18px;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,0.03);
+}
+.resume-header .left{
+  display:flex;
+  gap:16px;
+  align-items:center;
+}
+.avatar{
+  width:84px;
+  height:84px;
+  object-fit:cover;
+  border-radius:12px;
+  border:3px solid var(--accent);
+}
+.name{
+  margin:0;
+  font-size:20px;
+  font-weight:700;
+}
+.role{
+  margin:4px 0 0;
+  color:var(--muted);
+  font-size:13px;
+}
 
-  <main class="main-grid">
-    <!-- Column 1 -->
-    <section class="col col-left">
-      <article class="card">
-        <h2 class="red">1. ส่วนแนะนำตัว (Introduction / Profile)</h2>
-        <p>จุดประสงค์: ให้คนรู้ว่าเราเป็นใคร สนใจด้านไหน</p>
-        <ul>
-          <li>ชื่อ-นามสกุล (ภาษาไทยและอังกฤษ)</li>
-          <li>รูปโปรไฟล์ (ถ้ามี)</li>
-          <li>คณะ / มหาวิทยาลัย / สาขา</li>
-          <li>ปีการศึกษา หรือสถานะ เช่น "นักศึกษา ปี 3"</li>
-          <li>ความสนใจเฉพาะทาง เช่น AI, Web Dev, Cybersecurity, Data Science</li>
-        </ul>
-      </article>
+/* contact and actions */
+.resume-header .right{
+  margin-left:auto;
+  text-align:right;
+}
+.contact p{ margin:4px 0; font-size:14px;}
+.contact a{ color:#0b66c3; text-decoration:none; }
+.actions{ margin-top:8px; }
+.actions button{
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
+.actions button:hover{ opacity:0.95; }
 
-      <article class="card">
-        <h2 class="red">2. ทักษะ (Skills)</h2>
-        <p>จุดประสงค์: ทำให้อาจารย์/ผู้ดูแลเห็นว่าเราทำอะไรได้บ้าง</p>
-        <ul class="skills">
-          <li><strong>Programming:</strong> Python, Java, HTML/CSS, JavaScript</li>
-          <li><strong>AI & Data:</strong> TensorFlow, scikit-learn, Power BI, SQL</li>
-          <li><strong>Tools:</strong> Git, VS Code, Figma, Google Colab</li>
-          <li><strong>Soft skills:</strong> การสื่อสาร, ทำงานเป็นทีม, การแก้ปัญหา</li>
-        </ul>
-      </article>
-    </section>
+/* Body */
+.resume-body{
+  margin-top:18px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.section{
+  background:var(--card);
+  padding:14px 16px;
+  border-radius:10px;
+  border-left:4px solid transparent;
+  box-shadow: 0 8px 20px rgba(14,28,64,0.04);
+}
+.section h2{
+  margin:0 0 8px;
+  font-size:15px;
+  color:var(--accent);
+}
+.section p{ margin:6px 0; color:var(--muted); }
+.section ul{ margin:8px 0 0 18px; }
 
-    <!-- Column 2 -->
-    <section class="col col-center">
-      <article class="card">
-        <h2 class="red">3. ผลงานที่ผ่านมา (Projects / Portfolio)</h2>
-        <p>จุดประสงค์: แสดงสิ่งที่เคยทำจริง ทั้งในรายวิชาและนอกห้องเรียน</p>
+/* two-column inside sections */
+.two-col{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:16px;
+}
 
-        <ul>
-          <li>เว็บไซต์ที่เคยพัฒนา: ระบบแนะนำสถานที่ / เว็บไซต์โปรไฟล์</li>
-          <li>ระบบจองห้องประชุมออนไลน์ (Web Project)</li>
-          <li>AI ทำนายโรคเบาหวาน (Machine Learning / Data Project)</li>
-          <li>Dashboard วิเคราะห์ข้อมูลร้านกาแฟ (Data Visualization)</li>
-        </ul>
+/* small lists and styles */
+.skills li, .projects li{ margin-bottom:8px; font-size:14px; color:var(--text); }
+.meta{ list-style: disc; margin-left:20px; color:var(--text); }
 
-        <p class="muted">ใส่ลิงก์ไปยัง:</p>
-        <ul>
-          <li>GitHub Repository ของโปรเจกต์</li>
-          <li>Demo หรือวิดีโอสั้น ๆ (ถ้ามี)</li>
-          <li>Screenshots 1–2 รูป</li>
-        </ul>
-      </article>
+/* Footer */
+.resume-footer{
+  margin-top:14px;
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+}
 
-      <article class="card">
-        <h2 class="red">4. การศึกษา (Education)</h2>
-        <ul>
-          <li>คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์ — มหาวิทยาลัยราชภัฏอุดรธานี (ตัวอย่าง)</li>
-          <li>ปีการศึกษา: 2566 – ปัจจุบัน (ระบุเกรดถ้าต้องการ)</li>
-        </ul>
-      </article>
-    </section>
+/* Responsive */
+@media (max-width: 860px){
+  .resume-header{ flex-direction:column; align-items:flex-start; text-align:left; }
+  .resume-header .right{ margin-left:0; text-align:left; }
+  .two-col{ grid-template-columns: 1fr; }
+}
 
-    <!-- Column 3 -->
-    <section class="col col-right">
-      <article class="card">
-        <h2 class="red">5. กิจกรรมและผลงานอื่น ๆ (Activities / Achievements)</h2>
-        <p>เพื่อแสดงความสามารถรอบด้าน</p>
-        <ul>
-          <li>เข้าร่วมอบรม "AI for Beginners by Microsoft"</li>
-          <li>เข้าร่วมการแข่งขัน UDRU Hackathon 2025</li>
-          <li>ได้รับรางวัลชนะเลิศโครงงานด้าน IoT</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h2 class="red">6. ติดต่อ (Contact)</h2>
-        <ul>
-          <li>Email (มหาวิทยาลัยหรือ Gmail)</li>
-          <li>GitHub / LinkedIn / Facebook / Portfolio</li>
-          <li>ที่อยู่จังหวัด (ไม่จำเป็นต้องละเอียด)</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h2 class="red">7. องค์ประกอบเสริม (Career Interest)</h2>
-        <p>เป้าหมายในอนาคต หรือสายอาชีพที่สนใจ เช่น</p>
-        <ul>
-          <li>สนใจงานด้าน Data Science / Machine Learning</li>
-          <li>สนใจงานด้าน Web Development (Full-stack)</li>
-        </ul>
-      </article>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>© <span id="year"></span> ชื่อ-นามสกุล — สร้างด้วย GitHub Pages</p>
-  </footer>
-
-  <script>
-    // ใส่ปีอัตโนมัติ
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+/* Print styles (for PDF) */
+@media print{
+  body{ background:white; }
+  .resume{ margin:0; padding:0; max-width:100%; }
+  .actions, .contact a { display:none; }
+  .resume-header, .section{ box-shadow:none; border:none; }
+  .resume-header .right{ display:block; }
+  .section{ page-break-inside: avoid; }
+}
