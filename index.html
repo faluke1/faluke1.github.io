@@ -1,52 +1,127 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>เรซูเม่ของฉัน - Sanhanut Jumpanil</title>
-  <style>
-    body { font-family: 'Prompt', sans-serif; margin: 40px; background: #f7f7f7; color: #333; }
-    .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 0 10px #ccc; }
-    h1 { text-align: center; color: #007bff; }
-    h2 { border-bottom: 2px solid #007bff; padding-bottom: 5px; }
-    .section { margin-top: 20px; }
-    ul { list-style: none; padding-left: 0; }
-    li { margin-bottom: 8px; }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>หน้าแรก GitHub.io - เรซูเม่</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>เรซูเม่ของฉัน</h1>
-    <p style="text-align:center;">ชื่อ: <b>Sanhanut Jumpanil</b><br>
-    อีเมล: sanhanut@email.com | โทร: 081-xxx-xxxx</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="title-block">
+        <h1>ชื่อ-นามสกุล / ชื่อภาษาอังกฤษ</h1>
+        <p class="subtitle">สาขา / คณะ — มหาวิทยาลัย</p>
+      </div>
 
-    <div class="section">
-      <h2>เกี่ยวกับฉัน</h2>
-      <p>ผมเป็นนักเรียน/นักศึกษาที่สนใจในด้านเทคโนโลยี การเขียนโปรแกรม และการพัฒนาเว็บไซต์ มีความตั้งใจเรียนรู้สิ่งใหม่ ๆ และพัฒนาทักษะด้าน IT อย่างต่อเนื่อง</p>
+      <div class="contact-block">
+        <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+        <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+        <p>LinkedIn: <a href="#">linkedin.com/in/yourprofile</a></p>
+      </div>
     </div>
+  </header>
 
-    <div class="section">
-      <h2>ทักษะ</h2>
-      <ul>
-        <li>HTML, CSS, JavaScript</li>
-        <li>PHP, MySQL</li>
-        <li>Git & GitHub</li>
-      </ul>
-    </div>
+  <main class="main-grid">
+    <!-- Column 1 -->
+    <section class="col col-left">
+      <article class="card">
+        <h2 class="red">1. ส่วนแนะนำตัว (Introduction / Profile)</h2>
+        <p>จุดประสงค์: ให้คนรู้ว่าเราเป็นใคร สนใจด้านไหน</p>
+        <ul>
+          <li>ชื่อ-นามสกุล (ภาษาไทยและอังกฤษ)</li>
+          <li>รูปโปรไฟล์ (ถ้ามี)</li>
+          <li>คณะ / มหาวิทยาลัย / สาขา</li>
+          <li>ปีการศึกษา หรือสถานะ เช่น "นักศึกษา ปี 3"</li>
+          <li>ความสนใจเฉพาะทาง เช่น AI, Web Dev, Cybersecurity, Data Science</li>
+        </ul>
+      </article>
 
-    <div class="section">
-      <h2>ประสบการณ์</h2>
-      <ul>
-        <li><b>โครงงานเว็บไซต์แนะนำสถานที่ท่องเที่ยวจังหวัดร้อยเอ็ด</b> - พัฒนาเว็บไซต์ด้วย PHP และฐานข้อมูล MySQL</li>
-      </ul>
-    </div>
+      <article class="card">
+        <h2 class="red">2. ทักษะ (Skills)</h2>
+        <p>จุดประสงค์: ทำให้อาจารย์/ผู้ดูแลเห็นว่าเราทำอะไรได้บ้าง</p>
+        <ul class="skills">
+          <li><strong>Programming:</strong> Python, Java, HTML/CSS, JavaScript</li>
+          <li><strong>AI & Data:</strong> TensorFlow, scikit-learn, Power BI, SQL</li>
+          <li><strong>Tools:</strong> Git, VS Code, Figma, Google Colab</li>
+          <li><strong>Soft skills:</strong> การสื่อสาร, ทำงานเป็นทีม, การแก้ปัญหา</li>
+        </ul>
+      </article>
+    </section>
 
-    <div class="section">
-      <h2>การศึกษา</h2>
-      <ul>
-        <li>วิทยาลัยเทคนิค... สาขาคอมพิวเตอร์ธุรกิจ</li>
-      </ul>
-    </div>
-  </div>
+    <!-- Column 2 -->
+    <section class="col col-center">
+      <article class="card">
+        <h2 class="red">3. ผลงานที่ผ่านมา (Projects / Portfolio)</h2>
+        <p>จุดประสงค์: แสดงสิ่งที่เคยทำจริง ทั้งในรายวิชาและนอกห้องเรียน</p>
+
+        <ul>
+          <li>เว็บไซต์ที่เคยพัฒนา: ระบบแนะนำสถานที่ / เว็บไซต์โปรไฟล์</li>
+          <li>ระบบจองห้องประชุมออนไลน์ (Web Project)</li>
+          <li>AI ทำนายโรคเบาหวาน (Machine Learning / Data Project)</li>
+          <li>Dashboard วิเคราะห์ข้อมูลร้านกาแฟ (Data Visualization)</li>
+        </ul>
+
+        <p class="muted">ใส่ลิงก์ไปยัง:</p>
+        <ul>
+          <li>GitHub Repository ของโปรเจกต์</li>
+          <li>Demo หรือวิดีโอสั้น ๆ (ถ้ามี)</li>
+          <li>Screenshots 1–2 รูป</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2 class="red">4. การศึกษา (Education)</h2>
+        <ul>
+          <li>คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์ — มหาวิทยาลัยราชภัฏอุดรธานี (ตัวอย่าง)</li>
+          <li>ปีการศึกษา: 2566 – ปัจจุบัน (ระบุเกรดถ้าต้องการ)</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Column 3 -->
+    <section class="col col-right">
+      <article class="card">
+        <h2 class="red">5. กิจกรรมและผลงานอื่น ๆ (Activities / Achievements)</h2>
+        <p>เพื่อแสดงความสามารถรอบด้าน</p>
+        <ul>
+          <li>เข้าร่วมอบรม "AI for Beginners by Microsoft"</li>
+          <li>เข้าร่วมการแข่งขัน UDRU Hackathon 2025</li>
+          <li>ได้รับรางวัลชนะเลิศโครงงานด้าน IoT</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2 class="red">6. ติดต่อ (Contact)</h2>
+        <ul>
+          <li>Email (มหาวิทยาลัยหรือ Gmail)</li>
+          <li>GitHub / LinkedIn / Facebook / Portfolio</li>
+          <li>ที่อยู่จังหวัด (ไม่จำเป็นต้องละเอียด)</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2 class="red">7. องค์ประกอบเสริม (Career Interest)</h2>
+        <p>เป้าหมายในอนาคต หรือสายอาชีพที่สนใจ เช่น</p>
+        <ul>
+          <li>สนใจงานด้าน Data Science / Machine Learning</li>
+          <li>สนใจงานด้าน Web Development (Full-stack)</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> ชื่อ-นามสกุล — สร้างด้วย GitHub Pages</p>
+  </footer>
+
+  <script>
+    // ใส่ปีอัตโนมัติ
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
