@@ -437,39 +437,27 @@ h3 {
 .resume .func .interests-items div span {
   display: block;
 }
-/* ---- ปรับรูปโปรไฟล์ให้เป็นวงกลม ขนาดพอดี และ responsive ---- */
+/* ==== ปรับขนาดและรูปร่างรูปโปรไฟล์ให้เป็นวงกลมพอดี ==== */
 .resume .base .profile .photo {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* ปรับความสูงของกล่องรูป (ถ้าต้องการให้มีพื้นที่ด้านบน/ล่าง) */
-  padding: 8px 0 0 0;
-  position: relative;
 }
 
-/* ตัวรูปจริงให้เป็นวงกลม กำหนดขนาดแบบชัดเจน และ crop ด้วย object-fit */
-.resume .base .profile .photo img,
-.resume .base .profile .photo .avatar {
-  width: 140px;      /* ขนาดบน desktop — ปรับเป็น 120/110 ตามที่ชอบ */
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover; /* ตัดขอบภาพให้เต็มวงกลมโดยไม่บิดสัดส่วน */
-  display: block;
-  border: 4px solid #ffffff; /* เส้นขอบขาวรอบรูป (เอาออกได้) */
-  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
-}
-
-/* ถ้ารูปยังถูกเซ็ตเป็น width:100% จากกฎอื่น ให้บังคับขนาดด้วยความจำเพาะสูงขึ้น */
 .resume .base .profile .photo img {
-  max-width: none;
+  width: 140px;          /* ปรับขนาดรูปตามที่ต้องการ เช่น 120px, 150px */
+  height: 140px;
+  border-radius: 50%;    /* ทำให้เป็นวงกลม */
+  object-fit: cover;     /* ตัดขอบให้พอดีไม่ยืด */
+  border: 4px solid #ffffff; /* เส้นขอบสีขาวรอบรูป (เลือกเอาได้) */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
-/* responsive: ย่อรูปบนจอเล็ก */
-@media (max-width: 900px) {
-  .resume .base .profile .photo img,
-  .resume .base .profile .photo .avatar {
-    width: 100px;
-    height: 100px;
-    border-width: 3px;
+/* สำหรับจอเล็ก (มือถือ) */
+@media (max-width: 768px) {
+  .resume .base .profile .photo img {
+    width: 110px;
+    height: 110px;
   }
 }
+
