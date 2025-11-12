@@ -12,119 +12,85 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Style -->
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="resume" role="document" aria-label="Resume Faluke Jumpanil">
-    <!-- LEFT COLUMN -->
-    <aside class="base" aria-labelledby="profile-heading">
-      <header class="profile" id="profile-heading">
-        <div class="photo" aria-hidden="false">
-          <!-- ใช้ไฟล์ images/1.png ที่อยู่ในโฟลเดอร์ images (root-relative) -->
-          <img src="/images/1.png" alt="รูปโปรไฟล์ Faluke Jumpanil" class="avatar"
-               onerror="this.style.display='none'; this.parentElement.classList.add('no-img');">
-          <!-- Fallback icon ถ้ารูปไม่ขึ้น -->
-          <div class="avatar-fallback" aria-hidden="true">
-            <i class="fas fa-user-circle"></i>
-          </div>
+  <div class="resume">
+    <!-- ========== LEFT COLUMN ========== -->
+    <div class="base">
+      <div class="profile">
+        <div class="photo">
+          <!-- รูปโปรไฟล์ -->
+          <img src="images/me.jpg" alt="profile" style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
         </div>
-
         <div class="info">
-          <h1 class="name">Faluke Jumpanil</h1>
-          <h2 class="job">Frontend Web Designer</h2>
+          <h1 class="name">faluke jumpanil</h1>
+          <h2 class="job">frontend web designer</h2>
         </div>
-      </header>
+      </div>
 
-      <section class="about" aria-labelledby="about-heading">
-        <h3 id="about-heading">about me</h3>
+      <div class="about">
+        <h3>about me</h3>
         <p>I'm a web designer specializing in web design, graphic design, and UX. Experienced with the Adobe Creative Suite, responsive design, social media management, and prototyping.</p>
-      </section>
+      </div>
 
-      <section class="contact" aria-labelledby="contact-heading">
-        <h3 id="contact-heading">contact me</h3>
-        <div class="call">
-          <a href="tel:+66651140305"><i class="fas fa-phone"></i><span>065-114-0305</span></a>
-        </div>
-        <div class="address">
-          <i class="fas fa-map-marker-alt"></i><span>มหาวิทยาลัยราชภัฏอุดรธานี</span>
-        </div>
-        <div class="email">
-          <a href="mailto:faluke04@gmail.com"><i class="fas fa-envelope"></i><span>faluke04@gmail.com</span></a>
-        </div>
-      </section>
+      <div class="contact">
+        <h3>contact me</h3>
+        <div class="call"><a href="tel:0651140305"><i class="fas fa-phone"></i><span>065-114-0305</span></a></div>
+        <div class="address"><i class="fas fa-map-marker-alt"></i><span>Udon Thani, Thailand</span></div>
+        <div class="email"><a href="mailto:faluke04@gmail.com"><i class="fas fa-envelope"></i><span>faluke04@gmail.com</span></a></div>
+      </div>
 
-      <section class="follow" aria-labelledby="follow-heading">
-        <h3 id="follow-heading">follow me</h3>
+      <div class="follow">
+        <h3>follow me</h3>
         <div class="box">
-          <a href="https://www.facebook.com/faluke.553756/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/faluke.553756/" target="_blank" aria-label="Facebook">
             <i class="fab fa-facebook-f"></i>
           </a>
-          <a href="https://www.instagram.com/fffalukeee?igsh=MWs2ZWxvazkzMmVvMg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/fffalukeee?igsh=MWs2ZWxvazkzMmVvMg%3D%3D&utm_source=qr" target="_blank" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
         </div>
-      </section>
-    </aside>
+      </div>
+    </div>
 
-    <!-- RIGHT COLUMN -->
-    <main class="func" role="main">
-      <section class="work" aria-labelledby="work-heading">
-        <h3 id="work-heading"><i class="fa fa-briefcase" aria-hidden="true"></i> experience</h3>
+    <!-- ========== RIGHT COLUMN ========== -->
+    <div class="func">
+      <div class="work">
+        <h3><i class="fa fa-briefcase"></i> experience</h3>
         <ul>
-          <li>
-            <span class="title">Technical Consultant - Web Design</span>
-            <small class="company">Fiserv</small>
-            <small class="date">Apr 2018 - Now</small>
-          </li>
-          <li>
-            <span class="title">Web Designer</span>
-            <small class="company">Lynden</small>
-            <small class="date">Jan 2018 - Apr 2018</small>
-          </li>
-          <li>
-            <span class="title">Intern - Web Design</span>
-            <small class="company">Lynden</small>
-            <small class="date">Aug 2017 - Dec 2017</small>
-          </li>
+          <li><span class="title">Technical Consultant - Web Design</span><small class="company">Fiserv</small><small class="date">Apr 2018 - Now</small></li>
+          <li><span class="title">Web Designer</span><small class="company">Lynden</small><small class="date">Jan 2018 - Apr 2018</small></li>
+          <li><span class="title">Intern - Web Design</span><small class="company">Lynden</small><small class="date">Aug 2017 - Dec 2017</small></li>
         </ul>
-      </section>
+      </div>
 
-      <section class="edu" aria-labelledby="edu-heading">
-        <h3 id="edu-heading"><i class="fa fa-graduation-cap" aria-hidden="true"></i> education</h3>
+      <div class="edu">
+        <h3><i class="fa fa-graduation-cap"></i> education</h3>
         <ul>
-          <li>
-            <span class="title">Bachelor of Science<br>Web Design and Development</span>
-            <small class="company">มหาวิทยาลัยราชภัฏอุดรธานี</small>
-            <small class="date">2566 - ปัจจุบัน</small>
-          </li>
-          <li>
-            <span class="title">Computer Science</span>
-            <small class="company">Edmonds Community College</small>
-            <small class="date">Sept. 2014 - Dec. 2015</small>
-          </li>
-          <li>
-            <span class="title">High School</span>
-            <small class="company">Henry M. Jackson High School</small>
-            <small class="date">Jan. 2013 - Jun. 2015</small>
-          </li>
+          <li><span class="title">Bachelor of Science<br>Web Design and Development</span><small class="company">มหาวิทยาลัยราชภัฏอุดรธานี</small><small class="date">2566 - ปัจจุบัน</small></li>
+          <li><span class="title">Computer Science</span><small class="company">Edmonds Community College</small><small class="date">Sept. 2014 - Dec. 2015</small></li>
+          <li><span class="title">High School</span><small class="company">Henry M. Jackson High School</small><small class="date">Jan. 2013 - Jun. 2015</small></li>
         </ul>
-      </section>
+      </div>
 
-      <section class="skills-prog" aria-labelledby="skills-heading">
-        <h3 id="skills-heading"><i class="fas fa-code" aria-hidden="true"></i> programming skills</h3>
+      <div class="skills-prog">
+        <h3><i class="fas fa-code"></i> programming skills</h3>
         <ul>
           <li data-percent="95"><span>HTML5</span><div class="skills-bar"><div class="bar"></div></div></li>
-          <li data-percent="90"><span>CSS3 &amp; SCSS</span><div class="skills-bar"><div class="bar"></div></div></li>
+          <li data-percent="90"><span>CSS3 & SCSS</span><div class="skills-bar"><div class="bar"></div></div></li>
           <li data-percent="60"><span>JavaScript</span><div class="skills-bar"><div class="bar"></div></div></li>
           <li data-percent="50"><span>jQuery</span><div class="skills-bar"><div class="bar"></div></div></li>
           <li data-percent="40"><span>JSON</span><div class="skills-bar"><div class="bar"></div></div></li>
           <li data-percent="55"><span>PHP</span><div class="skills-bar"><div class="bar"></div></div></li>
           <li data-percent="40"><span>MySQL</span><div class="skills-bar"><div class="bar"></div></div></li>
         </ul>
-      </section>
+      </div>
 
-      <section class="skills-soft" aria-labelledby="soft-heading">
-        <h3 id="soft-heading"><i class="fas fa-bezier-curve" aria-hidden="true"></i> software skills</h3>
+      <div class="skills-soft">
+        <h3><i class="fas fa-bezier-curve"></i> software skills</h3>
         <ul>
           <li data-percent="90">
             <svg viewBox="0 0 100 100" class="radial"><circle cx="50" cy="50" r="45"></circle><circle class="cbar" cx="50" cy="50" r="45"></circle></svg>
@@ -143,10 +109,10 @@
             <span>Dreamweaver</span>
           </li>
         </ul>
-      </section>
+      </div>
 
-      <section class="interests" aria-labelledby="int-heading">
-        <h3 id="int-heading"><i class="fas fa-star" aria-hidden="true"></i> interests</h3>
+      <div class="interests">
+        <h3><i class="fas fa-star"></i> interests</h3>
         <div class="interests-items">
           <div class="item"><i class="fas fa-palette"></i><span>Art</span></div>
           <div class="item"><i class="fas fa-book"></i><span>Books</span></div>
@@ -154,20 +120,17 @@
           <div class="item"><i class="fas fa-headphones"></i><span>Music</span></div>
           <div class="item"><i class="fas fa-gamepad"></i><span>Games</span></div>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
   </div>
 
   <!-- Animate skill bars and circles -->
   <script>
-    // progress bars (width from data-percent)
     document.querySelectorAll('.skills-prog li').forEach(li=>{
       const p = li.getAttribute('data-percent') || 0;
       const bar = li.querySelector('.bar');
       if(bar) setTimeout(()=>{ bar.style.width = p + '%'; }, 200);
     });
-
-    // radial circles
     document.querySelectorAll('.skills-soft li').forEach(li=>{
       const p = parseInt(li.getAttribute('data-percent') || 0);
       const circle = li.querySelector('.cbar');
