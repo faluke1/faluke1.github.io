@@ -1,0 +1,136 @@
+/* style.css — One-page resume */
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --accent: #c92b2b; /* สีแดงจากตัวอย่าง */
+  --muted: #666;
+  --text: #222;
+}
+
+*{box-sizing:border-box}
+body{
+  font-family: 'Prompt', sans-serif;
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* resume wrapper */
+.resume{
+  max-width:1000px;
+  margin:32px auto;
+  padding:18px;
+}
+
+/* Header */
+.resume-header{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  background:linear-gradient(90deg,#fff,#fbfdff);
+  padding:18px;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,0.03);
+}
+.resume-header .left{
+  display:flex;
+  gap:16px;
+  align-items:center;
+}
+.avatar{
+  width:84px;
+  height:84px;
+  object-fit:cover;
+  border-radius:12px;
+  border:3px solid var(--accent);
+}
+.name{
+  margin:0;
+  font-size:20px;
+  font-weight:700;
+}
+.role{
+  margin:4px 0 0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* contact and actions */
+.resume-header .right{
+  margin-left:auto;
+  text-align:right;
+}
+.contact p{ margin:4px 0; font-size:14px;}
+.contact a{ color:#0b66c3; text-decoration:none; }
+.actions{ margin-top:8px; }
+.actions button{
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
+.actions button:hover{ opacity:0.95; }
+
+/* Body */
+.resume-body{
+  margin-top:18px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.section{
+  background:var(--card);
+  padding:14px 16px;
+  border-radius:10px;
+  border-left:4px solid transparent;
+  box-shadow: 0 8px 20px rgba(14,28,64,0.04);
+}
+.section h2{
+  margin:0 0 8px;
+  font-size:15px;
+  color:var(--accent);
+}
+.section p{ margin:6px 0; color:var(--muted); }
+.section ul{ margin:8px 0 0 18px; }
+
+/* two-column inside sections */
+.two-col{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:16px;
+}
+
+/* small lists and styles */
+.skills li, .projects li{ margin-bottom:8px; font-size:14px; color:var(--text); }
+.meta{ list-style: disc; margin-left:20px; color:var(--text); }
+
+/* Footer */
+.resume-footer{
+  margin-top:14px;
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* Responsive */
+@media (max-width: 860px){
+  .resume-header{ flex-direction:column; align-items:flex-start; text-align:left; }
+  .resume-header .right{ margin-left:0; text-align:left; }
+  .two-col{ grid-template-columns: 1fr; }
+}
+
+/* Print styles (for PDF) */
+@media print{
+  body{ background:white; }
+  .resume{ margin:0; padding:0; max-width:100%; }
+  .actions, .contact a { display:none; }
+  .resume-header, .section{ box-shadow:none; border:none; }
+  .resume-header .right{ display:block; }
+  .section{ page-break-inside: avoid; }
+}
