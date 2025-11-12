@@ -1,413 +1,266 @@
-/* Converted & fixed CSS (from SCSS variables to CSS custom properties) */
-
-/* Google font (Montserrat) */
+/* Google Font */
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap");
 
-:root{
-  --darkest-blue: #1a237e;
-  --darker-blue: #283593;
-  --dark-blue: #303f9f;
-  --medium-blue: #3949ab;
-  --light-blue: #3f51b5;
-  --lighter-blue: #5c6bc0;
-  --lightest-blue: #9fa8da;
+/* 🎨 Blue-Sky Theme */
+:root {
+  --blue-darkest: #0d47a1;
+  --blue-dark: #1565c0;
+  --blue-medium: #1976d2;
+  --blue-light: #2196f3;
+  --blue-lighter: #4fc3f7;
+  --blue-lightest: #e3f2fd;
   --white: #ffffff;
-  --black: #0e1442;
-  --orange: #ffb300;
-  --yellow: #fdd835;
-  --dark-pink: #ad1457;
-  --light-pink: #d81b60;
+  --text-dark: #0d1b2a;
+  --accent-orange: #ffb300;
+  --accent-yellow: #ffd54f;
 }
 
-/* reset & base */
-@charset "UTF-8";
+/* 🧱 Base Reset */
 * { outline: none; box-sizing: border-box; }
-*:before, *:after { box-sizing: inherit; }
-
 html, body {
   margin: 0;
   padding: 0;
-  transition: 0.5s;
-  background: var(--white);
-  cursor: default;
-  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
+  background: linear-gradient(135deg, var(--blue-lightest), #bbdefb);
+  color: var(--text-dark);
+}
+
+/* 🔗 Links */
+a {
+  text-decoration: none;
   color: var(--white);
+  transition: 0.3s;
 }
+a:hover { color: var(--accent-yellow); }
 
-/* links */
-a { text-decoration: none; color: var(--white); display: block; transition-duration: 0.3s; }
-ul { list-style-type: none; padding: 0; margin: 0; }
+ul { list-style: none; padding: 0; margin: 0; }
 
-/* headings */
-h3 {
-  color: var(--orange);
-  margin: 10px 0;
-  text-transform: lowercase;
-  font-size: 1.25em;
-}
-
-/* resume container */
+/* 🧾 Resume Layout */
 .resume {
   width: 960px;
-  background: var(--darkest-blue);
-  color: var(--white);
-  margin: 20px auto;
-  box-shadow: 10px 10px var(--black);
-  position: relative;
+  margin: 40px auto;
   display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  padding: 0; /* inner blocks have padding */
+  background: var(--blue-dark);
+  color: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-/* base (left column) and func (right column) */
-.resume .base,
-.resume .func { float: left; box-sizing: border-box; }
-
-/* padding housekeeping */
-.resume .base > div,
-.resume .func > div { padding-bottom: 10px; }
-.resume .base > div:last-of-type,
-.resume .func > div:last-of-type { padding-bottom: 0; }
-
-/* left column */
+/* 🎯 Left Column */
 .resume .base {
   width: 30%;
-  padding: 30px 15px;
-  background: var(--darker-blue);
-  color: var(--white);
-  min-width: 260px;
+  background: var(--blue-medium);
+  padding: 30px 20px;
 }
 
-/* profile card inside base */
-.resume .base .profile {
-  background: var(--orange);
-  padding: 30px 15px 40px 15px;
-  margin: -30px -15px 45px -15px;
-  position: relative;
-  z-index: 2;
-  border-radius: 6px;
-}
-.resume .base .profile::after {
-  content: "";
-  position: absolute;
-  background: var(--dark-blue);
-  width: 100%;
-  height: 30px;
-  bottom: -15px;
-  left: 0;
-  transform: skewY(-5deg);
-  z-index: -1;
-}
-
-/* photo / icon */
-.resume .base .profile .photo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.resume .base .profile .photo img { width: 100%; border-radius: 50%; }
-.resume .base .profile .fa-rocket {
-  font-size: 100px;
+.profile {
+  background: var(--accent-orange);
+  border-radius: 10px;
+  padding: 25px 15px;
   text-align: center;
-  margin: auto;
-  color: var(--darker-blue);
+  color: var(--blue-dark);
+  margin-bottom: 25px;
 }
-
-/* name / job */
-.resume .base .profile .info { text-align: center; color: var(--white); }
-.resume .base .profile .info .name {
-  margin-top: 10px;
-  margin-bottom: 0;
-  font-size: 1.75em;
-  text-transform: lowercase;
-  color: var(--darkest-blue);
-}
-.resume .base .profile .info .job {
-  margin-top: 10px;
-  margin-bottom: 0;
-  font-size: 1.5em;
-  text-transform: lowercase;
-  color: var(--darker-blue);
-}
-
-/* contact list */
-.resume .base .contact div { line-height: 24px; }
-.resume .base .contact div a:hover { color: var(--yellow); }
-.resume .base .contact div a:hover span::after { width: 100%; }
-.resume .base .contact div:hover i { color: var(--yellow); }
-.resume .base .contact div i {
-  color: var(--orange);
-  width: 20px;
-  height: 20px;
-  font-size: 20px;
-  text-align: center;
-  margin-right: 15px;
-  transition-duration: 0.3s;
-}
-.resume .base .contact div span { position: relative; }
-.resume .base .contact div span::after {
-  content: "";
-  position: absolute;
-  background: var(--yellow);
-  height: 1px;
-  width: 0;
-  bottom: 0;
-  left: 0;
-  transition-duration: 0.3s;
-}
-
-/* follow icons */
-.resume .base .follow .box { text-align: center; vertical-align: middle; }
-.resume .base .follow .box a { display: inline-block; vertical-align: text-bottom; }
-.resume .base .follow .box a:hover i {
-  background: var(--yellow);
-  border-radius: 5px;
-  transform: rotate(45deg) scale(0.8);
-}
-.resume .base .follow .box i {
-  display: inline-block;
-  font-size: 30px;
-  background: var(--orange);
-  width: 60px;
-  height: 60px;
+.profile img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
   border-radius: 50%;
-  line-height: 60px;
-  color: var(--darker-blue);
-  margin: 0 10px 10px 10px;
-  transition-duration: 0.3s;
+  border: 4px solid var(--white);
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
-.resume .base .follow .box i::before { transition-duration: 0.3s; }
-.resume .base .follow .box i.fa::before { display: block; }
+.profile .name {
+  font-size: 1.6em;
+  margin: 10px 0 0;
+  text-transform: capitalize;
+  color: var(--blue-darkest);
+}
+.profile .job {
+  font-size: 1.1em;
+  margin-top: 4px;
+  color: var(--blue-dark);
+}
 
-/* right column (func) */
-/* NOTE: base is 30% so func should be ~70% */
+.base h3 {
+  color: var(--accent-yellow);
+  text-transform: uppercase;
+  font-size: 1.1em;
+  margin: 20px 0 10px;
+}
+
+.base .contact div {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+  font-size: 0.95em;
+}
+.base .contact i {
+  color: var(--accent-orange);
+  width: 24px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.follow .box {
+  text-align: center;
+  margin-top: 10px;
+}
+.follow .box a {
+  display: inline-block;
+  margin: 5px;
+}
+.follow .box i {
+  font-size: 28px;
+  background: var(--accent-orange);
+  color: var(--blue-dark);
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.follow .box a:hover i {
+  background: var(--blue-light);
+  color: var(--white);
+}
+
+/* ⚙️ Right Column */
 .resume .func {
   width: 70%;
+  background: var(--blue-darkest);
   padding: 30px;
-  box-sizing: border-box;
 }
 
-/* hover effects on func children */
-.resume .func:hover > div { transition-duration: 0.5s; }
-.resume .func:hover > div:hover h3 i { transform: scale(1.25); }
-.resume .func:hover > div:not(:hover) { opacity: 0.5; }
-
-.resume .func h3 { transition-duration: 0.3s; margin-top: 0; display: flex; align-items: center; gap: 8px; }
-.resume .func h3 i {
-  color: var(--darker-blue);
-  background: var(--orange);
-  width: 42px;
-  height: 42px;
-  font-size: 20px;
-  line-height: 42px;
-  border-radius: 50%;
-  text-align: center;
-  vertical-align: middle;
-  margin-right: 8px;
-  transition-duration: 0.3s;
-}
-
-/* work & education two-column blocks inside func */
-.resume .func .work,
-.resume .func .edu { float: left; box-sizing: border-box; }
-.resume .func .work {
-  width: 48%;
-  background: var(--darker-blue);
-  padding: 15px;
-  margin: 0 4% 15px 0;
-}
-.resume .func .edu {
-  width: 48%;
-  background: var(--darker-blue);
-  padding: 15px;
-}
-.resume .func .work small,
-.resume .func .edu small { display: block; opacity: 0.85; color: var(--lightest-blue); font-size: 13px; }
-
-/* timeline bullets & lines */
-.resume .func .work ul li,
-.resume .func .edu ul li {
-  position: relative;
-  margin-left: 15px;
-  padding-left: 25px;
-  padding-bottom: 15px;
-}
-.resume .func .work ul li:hover::before,
-.resume .func .edu ul li:hover::before { animation: circle 1.2s infinite; }
-.resume .func .work ul li:hover span,
-.resume .func .edu ul li:hover span { color: var(--yellow); }
-
-@keyframes circle {
-  from { box-shadow: 0 0 0 0px var(--yellow); }
-  to { box-shadow: 0 0 0 6px rgba(255,255,255,0); }
-}
-.resume .func .work ul li:first-of-type::before,
-.resume .func .edu ul li:first-of-type::before { width: 10px; height: 10px; left: 1px; }
-.resume .func .work ul li:last-of-type,
-.resume .func .edu ul li:last-of-type { padding-bottom: 3px; }
-.resume .func .work ul li::before,
-.resume .func .work ul li::after,
-.resume .func .edu ul li::before,
-.resume .func .edu ul li::after {
-  content: "";
-  display: block;
-  position: absolute;
-}
-.resume .func .work ul li::before,
-.resume .func .edu ul li::before {
-  width: 7px;
-  height: 7px;
-  border: 3px solid var(--white);
-  background: var(--orange);
-  border-radius: 50%;
-  left: 3px;
-  z-index: 1;
-}
-.resume .func .work ul li::after,
-.resume .func .edu ul li::after {
-  width: 3px;
-  height: 100%;
-  background: var(--white);
-  left: 5px;
-  top: 0;
-}
-.resume .func .work ul li span,
-.resume .func .edu ul li span { transition-duration: 0.3s; color: var(--white); }
-
-/* skills prog (bars) */
-.resume .func .skills-prog {
-  clear: both;
-  background: var(--darker-blue);
-  padding: 15px;
-}
-.resume .func .skills-prog ul { margin-left: 15px; }
-.resume .func .skills-prog ul li {
-  margin-bottom: 8px;
+.resume .func h3 {
+  color: var(--accent-yellow);
   display: flex;
   align-items: center;
-  transition-duration: 0.3s;
+  font-size: 1.2em;
+  margin-top: 0;
 }
-.resume .func .skills-prog ul li:hover { color: var(--yellow); }
-.resume .func .skills-prog ul li:hover .skills-bar .bar {
-  background: var(--yellow);
-  box-shadow: 0 0 0 1px var(--yellow);
-}
-.resume .func .skills-prog ul li span { display: block; width: 140px; font-weight: 600; color: var(--lightest-blue); }
-.resume .func .skills-prog ul li .skills-bar {
-  background: var(--white);
-  height: 6px;
-  width: calc(100% - 140px);
-  position: relative;
-  border-radius: 4px;
-  overflow: hidden;
-}
-.resume .func .skills-prog ul li .skills-bar .bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0%;
-  background: var(--orange);
-  box-shadow: 0 0 0 var(--orange);
-  border-radius: 4px;
-  transition: width 0.8s ease;
-}
-
-/* skills soft (radial circles) */
-.resume .func .skills-soft {
-  clear: both;
-  background: var(--darker-blue);
-  padding: 15px;
-  margin: 15px 0 0;
-}
-.resume .func .skills-soft ul {
-  display: flex;
-  justify-content: space-between;
+.resume .func h3 i {
+  background: var(--accent-orange);
+  color: var(--blue-dark);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
   text-align: center;
-  gap: 12px;
-  padding: 0;
-  margin: 0;
+  margin-right: 8px;
 }
-.resume .func .skills-soft ul li { position: relative; list-style: none; width: 100%; max-width: 120px; margin: 0 auto; }
-.resume .func .skills-soft ul li:hover svg .cbar { stroke: var(--yellow); stroke-width: 4px; }
-.resume .func .skills-soft ul li:hover span,
-.resume .func .skills-soft ul li:hover small { transform: scale(1.05); color: var(--yellow); }
-.resume .func .skills-soft ul li svg { width: 100%; fill: transparent; transform: rotate(-90deg); display: block; }
-.resume .func .skills-soft ul li svg circle { stroke-width: 1px; stroke: var(--white); fill: none; }
-.resume .func .skills-soft ul li svg .cbar { stroke-width: 3px; stroke: var(--orange); stroke-linecap: round; transition: stroke-dashoffset 0.9s ease, stroke 0.3s ease; }
 
-/* position label over circle */
-.resume .func .skills-soft ul li span,
-.resume .func .skills-soft ul li small {
-  position: absolute;
-  display: block;
-  width: 100%;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.func .work, .func .edu {
+  background: var(--blue-medium);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.func .work li, .func .edu li {
+  margin-bottom: 10px;
+}
+.func .work span, .func .edu span {
   font-weight: 600;
   color: var(--white);
-  pointer-events: none;
 }
-.resume .func .skills-soft ul li span { top: 35%; font-size: 14px; }
-.resume .func .skills-soft ul li small { top: 62%; font-size: 12px; color: var(--lightest-blue); transform: translateY(-50%); }
+.func .work small, .func .edu small {
+  color: var(--blue-lighter);
+  font-size: 13px;
+}
 
-/* interests */
-.resume .func .interests {
-  background: var(--darker-blue);
-  margin: 15px 0 0;
+/* 📊 Skills */
+.skills-prog, .skills-soft, .interests {
+  background: var(--blue-medium);
   padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
-.resume .func .interests-items {
-  box-sizing: border-box;
-  padding: 0 0 15px;
-  width: 100%;
-  text-align: center;
+.skills-prog li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.skills-prog span {
+  width: 120px;
+  color: var(--blue-lightest);
+  font-weight: 600;
+}
+.skills-bar {
+  background: var(--white);
+  height: 6px;
+  width: calc(100% - 120px);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.skills-bar .bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent-orange);
+  transition: width 1s ease;
+}
+
+/* 🌀 Radial skills */
+.skills-soft ul {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
   flex-wrap: wrap;
+  gap: 12px;
 }
-.resume .func .interests-items div {
+.skills-soft li {
+  text-align: center;
+  width: 100px;
+}
+.skills-soft svg { width: 100%; transform: rotate(-90deg); }
+.skills-soft circle {
+  stroke-width: 2px;
+  stroke: var(--white);
+  fill: none;
+}
+.skills-soft .cbar {
+  stroke: var(--accent-orange);
+  stroke-width: 3px;
+  transition: stroke-dashoffset 0.8s ease;
+}
+.skills-soft span {
+  color: var(--white);
+  font-size: 0.9em;
+  display: block;
+  margin-top: -50px;
+}
+
+/* 🎮 Interests */
+.interests-items {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+  text-align: center;
+}
+.interests-items div {
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  color: var(--blue-lightest);
+  transition: 0.3s;
 }
-.resume .func .interests-items div:hover i { transform: scale(1.2); }
-.resume .func .interests-items div:hover span { color: var(--yellow); transition-duration: 0.3s; }
-.resume .func .interests-items div i {
-  font-size: 45px;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  color: var(--orange);
-  transition-duration: 0.3s;
+.interests-items div:hover {
+  background: var(--blue-lighter);
+  color: var(--white);
 }
-.resume .func .interests-items div span { display: block; color: var(--lightest-blue); margin-top: 6px; }
-
-/* small screens responsiveness */
-@media (max-width: 1000px) {
-  .resume { width: calc(100% - 40px); display:block; padding: 10px; }
-  .resume .base { width: 100%; padding: 16px; margin-bottom: 12px; }
-  .resume .func { width: 100%; padding: 12px; }
-  .resume .func .work, .resume .func .edu { width: 100%; margin: 0 0 12px 0; float: none; }
-  .resume .func .skills-soft ul { flex-wrap: wrap; gap: 10px; justify-content: space-around; }
-  .resume .func .skills-soft ul li { max-width: 90px; }
-  .resume .base .profile .fa-rocket { font-size: 72px; }
+.interests-items i {
+  font-size: 36px;
+  margin-bottom: 6px;
 }
 
-/* print-friendly tweaks */
-@media print {
-  .resume { box-shadow: none; background: var(--white); color: #000; }
-  .resume .base, .resume .func { background: transparent; }
-  .resume .base .profile, .resume .base .contact, .resume .base .follow,
-  .resume .func > div { box-shadow: none; background: transparent; border: none; }
-  .resume .base .follow .box, .resume .base .contact a { text-decoration: none; }
+/* 📱 Responsive */
+@media (max-width: 900px) {
+  .resume { flex-direction: column; width: 95%; }
+  .resume .base, .resume .func { width: 100%; }
+  .skills-soft ul { justify-content: space-around; }
 }
