@@ -1,4 +1,4 @@
-/* Converted & fixed CSS (from your earlier SCSS) */
+/* Converted & fixed CSS (updated) */
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap");
 
 :root{
@@ -23,21 +23,19 @@
 *:before, *:after { box-sizing: inherit; }
 
 html, body {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
   background: var(--white);
   cursor: default;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
+  color: var(--white);
 }
 
 a { text-decoration: none; color: var(--white); display: block; transition-duration: 0.3s; }
-ul { list-style-type: none; padding: 0; }
+ul { list-style-type: none; padding: 0; margin: 0; }
 
 h3 {
   color: var(--orange);
@@ -46,6 +44,7 @@ h3 {
   font-size: 1.25em;
 }
 
+/* ====== Container layout (Flexbox) ====== */
 .resume {
   width: 960px;
   background: var(--darkest-blue);
@@ -54,33 +53,38 @@ h3 {
   box-shadow: 10px 10px var(--black);
   position: relative;
   display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  overflow: visible;
 }
-.resume .base,
-.resume .func {
-  box-sizing: border-box;
-  float: left;
-}
-.resume .base > div,
-.resume .func > div {
-  padding-bottom: 10px;
-}
-.resume .base > div:last-of-type,
-.resume .func > div:last-of-type {
-  padding-bottom: 0;
-}
+
+/* Left column (base) */
 .resume .base {
   width: 30%;
+  min-width: 240px;
   padding: 30px 15px;
   background: var(--darker-blue);
   color: var(--white);
+  box-sizing: border-box;
 }
+
+/* Right column (func) */
+.resume .func {
+  width: 70%;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+/* ===== Profile card ===== */
 .resume .base .profile {
   background: var(--orange);
-  padding: 30px 15px 40px 15px;
+  padding: 24px 15px 35px 15px;
   margin: -30px -15px 45px -15px;
   position: relative;
   z-index: 2;
+  border-radius: 6px;
 }
+
 .resume .base .profile::after {
   content: "";
   position: absolute;
@@ -92,89 +96,93 @@ h3 {
   transform: skewY(-5deg);
   z-index: -1;
 }
-.resume .base .profile .photo img {
-  width: 100%;
-  border-radius: 50%;
-}
+
+/* ===== Profile photo: enforce perfect circle and size ===== */
 .resume .base .profile .photo {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 12px;
 }
-.resume .base .profile .fa-rocket {
-  font-size: 100px;
-  text-align: center;
-  margin: auto;
-  color: var(--darker-blue);
+
+/* override any previous width:100% rules and force circle size */
+.resume .base .profile .photo img {
+  display: block !important;
+  width: 140px !important;
+  height: 140px !important;
+  max-width: none !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  border: 4px solid #ffffff;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  margin: 0 auto;
 }
+
+/* fallback icon hidden when real image present (if you use .avatar-fallback) */
+.resume .base .profile .photo .avatar-fallback { display: none; }
+
+/* ===== Profile text (name & job) - made slightly smaller per request ===== */
 .resume .base .profile .info {
   text-align: center;
   color: var(--white);
 }
+
+/* ชื่อ (ลดขนาดลง) */
 .resume .base .profile .info .name {
   margin-top: 10px;
   margin-bottom: 0;
-  font-size: 1.75em;
+  font-size: 1.4em; /* ลดจาก 1.75em */
   text-transform: lowercase;
   color: var(--darkest-blue);
+  font-weight: 700;
+  line-height: 1.1;
 }
+
+/* ตำแหน่ง/สาขา (ลดขนาดลง) */
 .resume .base .profile .info .job {
-  margin-top: 10px;
+  margin-top: 8px;
   margin-bottom: 0;
-  font-size: 1.5em;
+  font-size: 1.0em; /* ลดจาก 1.5em */
   text-transform: lowercase;
   color: var(--darker-blue);
+  font-weight: 600;
 }
+
+/* ===== Contact list styling ===== */
 .resume .base .contact div {
   line-height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-.resume .base .contact div a:hover {
-  color: var(--yellow);
-}
-.resume .base .contact div a:hover span::after {
-  width: 100%;
-}
-.resume .base .contact div:hover i {
-  color: var(--yellow);
-}
+
 .resume .base .contact div i {
   color: var(--orange);
   width: 20px;
   height: 20px;
   font-size: 20px;
   text-align: center;
-  margin-right: 15px;
+  margin-right: 8px;
   transition-duration: 0.3s;
 }
-.resume .base .contact div span {
-  position: relative;
-}
+
+.resume .base .contact div a:hover { color: var(--yellow); }
+.resume .base .contact div span { position: relative; }
 .resume .base .contact div span::after {
   content: "";
   position: absolute;
   background: var(--yellow);
   height: 1px;
   width: 0;
-  bottom: 0;
+  bottom: -2px;
   left: 0;
   transition-duration: 0.3s;
 }
-.resume .base .follow .box {
-  text-align: center;
-  vertical-align: middle;
-}
-.resume .base .follow .box a {
-  display: inline-block;
-  vertical-align: text-bottom;
-}
-.resume .base .follow .box a:hover i {
-  background: var(--yellow);
-  border-radius: 5px;
-  transform: rotate(45deg) scale(0.8);
-}
-.resume .base .follow .box a:hover i::before {
-  transform: rotate(-45deg) scale(1.5);
-}
+.resume .base .contact div a:hover span::after { width: 100%; }
+
+/* ===== Follow icons ===== */
+.resume .base .follow .box { text-align: center; margin-top: 10px; }
+.resume .base .follow .box a { display: inline-block; vertical-align: middle; }
 .resume .base .follow .box i {
   display: inline-block;
   font-size: 30px;
@@ -187,28 +195,14 @@ h3 {
   margin: 0 10px 10px 10px;
   transition-duration: 0.3s;
 }
-.resume .base .follow .box i::before {
-  transition-duration: 0.3s;
-}
-.resume .base .follow .box i.fa::before {
-  display: block;
-}
-.resume .func {
-  width: 100%;
-  padding: 30px;
-}
-.resume .func:hover > div {
-  transition-duration: 0.5s;
-}
-.resume .func:hover > div:hover h3 i {
-  transform: scale(1.25);
-}
-.resume .func:hover > div:not(:hover) {
-  opacity: 0.5;
-}
+.resume .base .follow .box i:hover { background: var(--yellow); transform: rotate(15deg); }
+
+/* ===== Right column headers & icon circles ===== */
 .resume .func h3 {
   transition-duration: 0.3s;
   margin-top: 0;
+  display: flex;
+  align-items: center;
 }
 .resume .func h3 i {
   color: var(--darker-blue);
@@ -223,62 +217,38 @@ h3 {
   margin-right: 8px;
   transition-duration: 0.3s;
 }
+
+/* ===== Work / Education boxes ===== */
 .resume .func .work,
 .resume .func .edu {
   float: left;
+  width: 48%;
+  background: var(--darker-blue);
+  padding: 15px;
+  margin: 0 4% 15px 0;
+  border-radius: 6px;
+  box-sizing: border-box;
 }
+.resume .func .edu { margin-right: 0; }
+
 .resume .func .work small,
-.resume .func .edu small {
-  display: block;
-  opacity: 0.7;
-}
+.resume .func .edu small { display: block; opacity: 0.75; color: var(--lightest-blue); font-size: 13px; }
+
 .resume .func .work ul li,
 .resume .func .edu ul li {
   position: relative;
   margin-left: 15px;
   padding-left: 25px;
   padding-bottom: 15px;
+  line-height: 1.4;
 }
-.resume .func .work ul li:hover::before,
-.resume .func .edu ul li:hover::before {
-  animation: circle 1.2s infinite;
-}
-.resume .func .work ul li:hover span,
-.resume .func .edu ul li:hover span {
-  color: var(--yellow);
-}
-@keyframes circle {
-  from {
-    box-shadow: 0 0 0 0px var(--yellow);
-  }
-  to {
-    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0);
-  }
-}
-.resume .func .work ul li:first-of-type::before,
-.resume .func .edu ul li:first-of-type::before {
-  width: 10px;
-  height: 10px;
-  left: 1px;
-}
-.resume .func .work ul li:last-of-type,
-.resume .func .edu ul li:last-of-type {
-  padding-bottom: 3px;
-}
-.resume .func .work ul li:last-of-type::after,
-.resume .func .edu ul li:last-of-type::after {
-  border-radius: 1.5px;
-}
+
+/* timeline dots & connecting bar */
 .resume .func .work ul li::before,
-.resume .func .work ul li::after,
-.resume .func .edu ul li::before,
-.resume .func .edu ul li::after {
+.resume .func .edu ul li::before {
   content: "";
   display: block;
   position: absolute;
-}
-.resume .func .work ul li::before,
-.resume .func .edu ul li::before {
   width: 7px;
   height: 7px;
   border: 3px solid var(--white);
@@ -289,118 +259,94 @@ h3 {
 }
 .resume .func .work ul li::after,
 .resume .func .edu ul li::after {
+  content: "";
+  display: block;
+  position: absolute;
   width: 3px;
   height: 100%;
   background: var(--white);
   left: 5px;
   top: 0;
+  opacity: 0.08;
 }
-.resume .func .work ul li span,
-.resume .func .edu ul li span {
-  transition-duration: 0.3s;
+
+/* remove after on last item so the vertical line doesn't continue */
+.resume .func .work ul li:last-child::after,
+.resume .func .edu ul li:last-child::after { display: none; }
+
+/* hover effect for timeline */
+@keyframes circle {
+  from { box-shadow: 0 0 0 0px var(--yellow); }
+  to { box-shadow: 0 0 0 6px rgba(255,255,255,0); }
 }
-.resume .func .work {
-  width: 48%;
-  background: var(--darker-blue);
-  padding: 15px;
-  margin: 0 4% 15px 0;
-}
-.resume .func .edu {
-  width: 48%;
-  background: var(--darker-blue);
-  padding: 15px;
-}
+.resume .func .work ul li:hover::before,
+.resume .func .edu ul li:hover::before { animation: circle 1.2s infinite; }
+
+/* ===== Skills progress bars ===== */
 .resume .func .skills-prog {
   clear: both;
   background: var(--darker-blue);
   padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
 }
-.resume .func .skills-prog ul {
-  margin-left: 15px;
-}
+.resume .func .skills-prog ul { margin-left: 15px; padding: 0; list-style: none; }
 .resume .func .skills-prog ul li {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
   transition-duration: 0.3s;
 }
-.resume .func .skills-prog ul li:hover {
-  color: var(--yellow);
-}
-.resume .func .skills-prog ul li:hover .skills-bar .bar {
-  background: var(--yellow);
-  box-shadow: 0 0 0 1px var(--yellow);
-}
-.resume .func .skills-prog ul li span {
-  display: block;
-  width: 120px;
-}
+.resume .func .skills-prog ul li span { display: block; width: 120px; font-weight: 600; color: var(--lightest-blue); }
 .resume .func .skills-prog ul li .skills-bar {
   background: var(--white);
-  height: 2px;
+  height: 6px;
   width: calc(100% - 120px);
   position: relative;
-  border-radius: 2px;
+  border-radius: 4px;
+  overflow: hidden;
 }
 .resume .func .skills-prog ul li .skills-bar .bar {
   position: absolute;
-  top: -1px;
-  height: 4px;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
   background: var(--orange);
   box-shadow: 0 0 0 var(--orange);
-  border-radius: 5px;
+  border-radius: 4px;
+  transition: width 0.8s ease;
 }
+
+/* ===== Software skills (radial) ===== */
 .resume .func .skills-soft {
   clear: both;
   background: var(--darker-blue);
   padding: 15px;
   margin: 15px 0 0;
+  border-radius: 6px;
 }
 .resume .func .skills-soft ul {
   display: flex;
   justify-content: space-between;
   text-align: center;
+  gap: 12px;
+  padding: 0;
 }
-.resume .func .skills-soft ul li {
-  position: relative;
+.resume .func .skills-soft ul li { position: relative; list-style: none; width: 100%; max-width: 120px; margin: 0 auto; }
+.resume .func .skills-soft ul li svg { width: 100%; transform: rotate(-90deg); display:block; }
+.resume .func .skills-soft ul li svg circle { stroke-width: 1px; stroke: var(--white); fill: none; }
+.resume .func .skills-soft ul li svg .cbar { stroke-width: 3px; stroke: var(--orange); stroke-linecap: round; transition: stroke-dashoffset 0.9s ease; }
+.resume .func .skills-soft ul li span, .resume .func .skills-soft ul li small {
+  position: absolute; display:block; width:100%; left:0; top:50%; transform:translateY(-50%); color:var(--white);
 }
-.resume .func .skills-soft ul li:hover svg .cbar {
-  stroke: var(--yellow);
-  stroke-width: 4px;
-}
-.resume .func .skills-soft ul li:hover span,
-.resume .func .skills-soft ul li:hover small {
-  transform: scale(1.2);
-}
-.resume .func .skills-soft ul li svg {
-  width: 95%;
-  fill: transparent;
-  transform: rotate(-90deg);
-}
-.resume .func .skills-soft ul li svg circle {
-  stroke-width: 1px;
-  stroke: var(--white);
-}
-.resume .func .skills-soft ul li svg .cbar {
-  stroke-width: 3px;
-  stroke: var(--orange);
-  stroke-linecap: round;
-}
-.resume .func .skills-soft ul li span,
-.resume .func .skills-soft ul li small {
-  position: absolute;
-  display: block;
-  width: 100%;
-  top: 52%;
-  transition-duration: 0.3s;
-}
-.resume .func .skills-soft ul li span {
-  top: 40%;
-}
+
+/* ===== Interests ===== */
 .resume .func .interests {
   background: var(--darker-blue);
   margin: 15px 0 0;
   padding: 15px;
+  border-radius: 6px;
 }
 .resume .func .interests-items {
   box-sizing: border-box;
@@ -409,6 +355,7 @@ h3 {
   text-align: center;
   display: flex;
   justify-content: space-between;
+  gap: 12px;
 }
 .resume .func .interests-items div {
   display: flex;
@@ -418,14 +365,10 @@ h3 {
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  background: rgba(255,255,255,0.02);
 }
-.resume .func .interests-items div:hover i {
-  transform: scale(1.2);
-}
-.resume .func .interests-items div:hover span {
-  color: var(--yellow);
-  transition-duration: 0.3s;
-}
+.resume .func .interests-items div:hover i { transform: scale(1.2); }
+.resume .func .interests-items div:hover span { color: var(--yellow); transition-duration: 0.3s; }
 .resume .func .interests-items div i {
   font-size: 45px;
   width: 60px;
@@ -434,38 +377,23 @@ h3 {
   color: var(--orange);
   transition-duration: 0.3s;
 }
-.resume .func .interests-items div span {
-  display: block;
-}
-/* --------- บังคับให้รูปเป็นวงกลมแน่นอน (override rules) --------- */
-.resume .base .profile .photo,
-.resume .base .profile .photo * {
-  /* ป้องกันการยืดของ container */
-  box-sizing: border-box;
-}
+.resume .func .interests-items div span { display: block; color: var(--lightest-blue); margin-top: 6px; }
 
-/* บังคับขนาดจริงและยกเลิก width:100% ของกฎเก่า */
-.resume .base .profile .photo img {
-  display: block !important;
-  width: 140px !important;       /* ปรับขนาดตามต้องการ */
-  height: 140px !important;
-  max-width: none !important;    /* ยกเลิกการถูกบังคับให้เต็มความกว้าง */
-  border-radius: 50% !important; /* ทำเป็นวงกลม */
-  object-fit: cover !important;  /* ตัดภาพให้เต็มวงกลมโดยไม่บิด */
-  border: 4px solid #ffffff;     /* ขอบขาว รอบรูป (ถ้าไม่ชอบลบได้) */
-  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
-  margin: 0 auto;                /* จัดกึ่งกลางแนวนอน */
+/* ===== Responsive ===== */
+@media (max-width: 1000px) {
+  .resume { width: calc(100% - 40px); display: block; padding: 10px; }
+  .resume .base { width: 100%; padding: 16px; margin-bottom: 12px; }
+  .resume .func { width: 100%; padding: 12px; }
+  .resume .func .work, .resume .func .edu { width: 100%; margin: 0 0 12px 0; float: none; }
+  .resume .func .skills-soft ul { flex-wrap: wrap; gap: 10px; justify-content: space-around; }
+  .resume .func .skills-soft ul li { max-width: 90px; }
+  .resume .base .profile .photo img { width: 110px !important; height: 110px !important; border-width: 3px; }
 }
 
-/* ถ้ามี fallback icon ให้ซ่อนเมื่อมีรูปจริง */
-.resume .base .profile .photo .avatar-fallback { display: none; }
-
-/* mobile: ย่อขนาดรูป */
-@media (max-width: 900px) {
-  .resume .base .profile .photo img {
-    width: 110px !important;
-    height: 110px !important;
-    border-width: 3px;
-  }
+/* print-friendly tweaks */
+@media print {
+  .resume { box-shadow: none; background: var(--white); color: #000; }
+  .resume .base, .resume .func { background: transparent; }
+  .resume .base .profile, .resume .base .contact, .resume .base .follow,
+  .resume .func > div { box-shadow: none; background: transparent; border: none; }
 }
-
