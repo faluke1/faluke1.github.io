@@ -20,10 +20,9 @@
     <aside class="base" aria-labelledby="profile-heading">
       <header class="profile" id="profile-heading">
         <div class="photo" aria-hidden="false">
-          <!-- ใช้ไฟล์ images/1.png ที่อยู่ในโฟลเดอร์ images (root-relative) -->
+          <!-- ใช้ไฟล์ images/1.png -->
           <img src="/images/1.png" alt="รูปโปรไฟล์ Faluke Jumpanil" class="avatar"
                onerror="this.style.display='none'; this.parentElement.classList.add('no-img');">
-          <!-- Fallback icon ถ้ารูปไม่ขึ้น -->
           <div class="avatar-fallback" aria-hidden="true">
             <i class="fas fa-user-circle"></i>
           </div>
@@ -69,7 +68,7 @@
     <!-- RIGHT COLUMN -->
     <main class="func" role="main">
       <section class="work" aria-labelledby="work-heading">
-        <h3 id="work-heading"><i class="fa fa-briefcase" aria-hidden="true"></i> ประสบการณ์</h3>
+        <h3 id="work-heading"><i class="fa fa-briefcase" aria-hidden="true"></i> experience</h3>
         <ul>
           <li>
             <span class="title">Technical Consultant - Web Design</span>
@@ -90,7 +89,7 @@
       </section>
 
       <section class="edu" aria-labelledby="edu-heading">
-        <h3 id="edu-heading"><i class="fa fa-graduation-cap" aria-hidden="true"></i> การศึกษา</h3>
+        <h3 id="edu-heading"><i class="fa fa-graduation-cap" aria-hidden="true"></i> education</h3>
         <ul>
           <li>
             <span class="title">Bachelor of Science<br>Web Design and Development</span>
@@ -110,14 +109,14 @@
         </ul>
       </section>
 
+      <!-- UPDATED PROGRAMMING SKILLS -->
       <section class="skills-prog" aria-labelledby="skills-heading">
         <h3 id="skills-heading"><i class="fas fa-code" aria-hidden="true"></i> programming skills</h3>
         <ul>
-          <!-- เปอร์เซ็นต์ตามที่ร้องขอ -->
           <li data-percent="55"><span>HTML5</span><div class="skills-bar"><div class="bar"></div></div></li>
-          <li data-percent="0"><span>CSS3 &amp; SCSS</span><div class="skills-bar"><div class="bar"></div></div></li>
+          <li data-percent="35"><span>C</span><div class="skills-bar"><div class="bar"></div></div></li>
           <li data-percent="35"><span>JavaScript</span><div class="skills-bar"><div class="bar"></div></div></li>
-          <li data-percent="0"><span>jQuery</span><div class="skills-bar"><div class="bar"></div></div></li>
+          <li data-percent="25"><span>Python</span><div class="skills-bar"><div class="bar"></div></div></li>
           <li data-percent="0"><span>JSON</span><div class="skills-bar"><div class="bar"></div></div></li>
           <li data-percent="40"><span>PHP</span><div class="skills-bar"><div class="bar"></div></div></li>
           <li data-percent="30"><span>MySQL</span><div class="skills-bar"><div class="bar"></div></div></li>
@@ -128,19 +127,31 @@
         <h3 id="soft-heading"><i class="fas fa-bezier-curve" aria-hidden="true"></i> software skills</h3>
         <ul>
           <li data-percent="90">
-            <svg viewBox="0 0 100 100" class="radial"><circle cx="50" cy="50" r="45"></circle><circle class="cbar" cx="50" cy="50" r="45"></circle></svg>
+            <svg viewBox="0 0 100 100" class="radial">
+              <circle cx="50" cy="50" r="45"></circle>
+              <circle class="cbar" cx="50" cy="50" r="45"></circle>
+            </svg>
             <span>Illustrator</span>
           </li>
           <li data-percent="75">
-            <svg viewBox="0 0 100 100" class="radial"><circle cx="50" cy="50" r="45"></circle><circle class="cbar" cx="50" cy="50" r="45"></circle></svg>
+            <svg viewBox="0 0 100 100" class="radial">
+              <circle cx="50" cy="50" r="45"></circle>
+              <circle class="cbar" cx="50" cy="50" r="45"></circle>
+            </svg>
             <span>Photoshop</span>
           </li>
           <li data-percent="85">
-            <svg viewBox="0 0 100 100" class="radial"><circle cx="50" cy="50" r="45"></circle><circle class="cbar" cx="50" cy="50" r="45"></circle></svg>
+            <svg viewBox="0 0 100 100" class="radial">
+              <circle cx="50" cy="50" r="45"></circle>
+              <circle class="cbar" cx="50" cy="50" r="45"></circle>
+            </svg>
             <span>InDesign</span>
           </li>
           <li data-percent="65">
-            <svg viewBox="0 0 100 100" class="radial"><circle cx="50" cy="50" r="45"></circle><circle class="cbar" cx="50" cy="50" r="45"></circle></svg>
+            <svg viewBox="0 0 100 100" class="radial">
+              <circle cx="50" cy="50" r="45"></circle>
+              <circle class="cbar" cx="50" cy="50" r="45"></circle>
+            </svg>
             <span>Dreamweaver</span>
           </li>
         </ul>
@@ -161,24 +172,24 @@
 
   <!-- Animate skill bars and circles -->
   <script>
-    // progress bars (width from data-percent)
-    document.querySelectorAll('.skills-prog li').forEach(li=>{
+    // progress bars
+    document.querySelectorAll('.skills-prog li').forEach(li => {
       const p = li.getAttribute('data-percent') || 0;
       const bar = li.querySelector('.bar');
-      if(bar) setTimeout(()=>{ bar.style.width = p + '%'; }, 200);
+      if (bar) setTimeout(() => { bar.style.width = p + '%'; }, 200);
     });
 
     // radial circles
-    document.querySelectorAll('.skills-soft li').forEach(li=>{
+    document.querySelectorAll('.skills-soft li').forEach(li => {
       const p = parseInt(li.getAttribute('data-percent') || 0);
       const circle = li.querySelector('.cbar');
-      if(circle){
+      if (circle) {
         const r = circle.r.baseVal.value;
         const c = 2 * Math.PI * r;
         circle.style.strokeDasharray = c;
         const offset = c * (1 - p / 100);
         circle.style.strokeDashoffset = c;
-        setTimeout(()=>{ circle.style.strokeDashoffset = offset; }, 250);
+        setTimeout(() => { circle.style.strokeDashoffset = offset; }, 250);
       }
     });
   </script>
